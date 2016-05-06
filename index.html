@@ -6,15 +6,22 @@
 		google.load("visualization", '1', {packages:['corechart']});  // This loads the Google "Visualization" API, which is needed to use Google Charts or Google Tables.  It's required code!  The arguments are API, Version, Packages (this one is not required)
 		google.setOnLoadCallback(readData);  // The google.setOnLoadCallback method will call the specified callback function once your document (including any specified Google APIs) have finished loading.
 
+		// function readData() {
+		//   var query = new google.visualization.Query(  // This Query is asking for the data from the Google Spreadsheet
+		//   //This is the URL of the data source -- it must be public and shared (see the video on creating a form and sharing settings).  This link has our TV watching data
+		//   'https://docs.google.com/a/greenwich.k12.ct.us/spreadsheets/d/1R3GLkr0EJh7fYzBayycmNt0xDK8hyxaWcbuZ_O9MVCY/edit?usp=sharing');
+	
+		//   // Send the query and when the query finishes, call the function "handleQueryResponse"
+		//   query.send(handleQueryResponse);
+		// }
+
 		function readData() {
 		  var query = new google.visualization.Query(  // This Query is asking for the data from the Google Spreadsheet
 		  //This is the URL of the data source -- it must be public and shared (see the video on creating a form and sharing settings).  This link has our TV watching data
-		  'https://docs.google.com/a/greenwich.k12.ct.us/spreadsheets/d/1R3GLkr0EJh7fYzBayycmNt0xDK8hyxaWcbuZ_O9MVCY/edit?usp=sharing');
-		  
+		  'https://docs.google.com/a/greenwich.k12.ct.us/spreadsheets/d/1w11i2BcmbZYvqI8BtGozwUcoBbaWykgIcCqJFwKuRhM/edit?usp=sharing');
 		  // Send the query and when the query finishes, call the function "handleQueryResponse"
 		  query.send(handleQueryResponse);
 		}
-
 		function handleQueryResponse(response) { // This is enacted when the query response is returned.  If the query was successful, the response is the data table.  If the query failed, an error is returned, no table
 		  if (response.isError()) {
 		    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
